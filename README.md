@@ -14,11 +14,11 @@ Square-cube pandigials ("nice" numbers) seem to be distributed pseudo-randomly. 
 
 Here we have two tricks: data and [dakka](https://tvtropes.org/pmwiki/pmwiki.php/Main/MoreDakka). With enough data on the "niceness" of many numbers, we may be able to find patterns in (or at least take guesses about) which regions are more likely to have nice numbers. Then once we have some tricks, we can start checking semi-randomly in the bases likely to have 100% nice numbers. With enough ~~dakka~~ processing time and luck, anything is possible!
 
-For more background, check out the [original article](https://beautifulthorns.wixsite.com/home/post/is-69-unique).
+For more background, check out the [original article](https://beautifulthorns.wixsite.com/home/post/is-69-unique) and [my findings](https://wasabipesto.com/nice).
 
 ## What this does
 
-This script connects to my server running the [nice-backend](https://github.com/wasabipesto/nice-backend). 
+This script connects to my server running the [nice-backend](https://github.com/wasabipesto/nice-backend) at `https://nice.wasabipesto.com`. 
 
 When you GET the `/claim` endpoint, the backend returns details of a range to search from the database. Each range is a set of numbers, represented in base 10, alongisde a base to use for representations. The entire possible set of numbers valid in the selected base is divided up into fields of a maximum of 300000000 numbers. This range takes my computer about one hour to process, so once you request a range the claim is valid for two hours (after which the backend may give this claim to someone else).
 
