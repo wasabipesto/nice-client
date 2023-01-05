@@ -24,16 +24,16 @@ def get_num_uniques(num, base): # get the number of unique digits in the sqube
     return len(set(n_square + n_cube))
 
 def search_range(n_start, n_end, base): # search a range of numbers
-    qty_uniques = {}
-    near_misses = []
+    qty_uniques = {} # the quantity of numbers with each possible niceness
+    near_misses = {} # numbers with niceness >= 0.9
     uniques_cutoff = base*0.9
     for b in range(1,base+1):
         qty_uniques.update({b: 0})
-    for num in range(n_start, n_end+1):
+    for num in range(n_start, n_end):
         num_uniques = get_num_uniques(num, base)
         if num_uniques >= uniques_cutoff:
-            near_misses.append(num) # return a list of near-misses
-        qty_uniques[num_uniques]+=1 # return a quantity for each possible niceness
+            near_misses[num] = get_num_uniques(num, base)
+        qty_uniques[num_uniques]+=1
     return qty_uniques, near_misses
 
 def main():
@@ -55,17 +55,12 @@ def main():
         claimResponse['base']
     )
     
-    # collate results
-    near_misses_dict = {}
-    for num in near_misses:
-        near_misses_dict[num] = get_num_uniques(num, claimResponse['base'])
-    
     submitData = {
         'search_id': claimResponse['search_id'],
         'username': username,
         'client_version': nice_version,
         'unique_count': qty_uniques,
-        'near_misses': near_misses_dict
+        'near_misses': near_misses
     }
 
     # send results to mothership

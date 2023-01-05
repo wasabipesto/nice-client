@@ -2,7 +2,7 @@ FROM python:3.10-bullseye
 
 ENV PYTHONUNBUFFERED=1
 
-ENV NICE_VERSION=1.0.0
+ENV NICE_VERSION=1.0.1
 
 WORKDIR /usr/src/app
 
