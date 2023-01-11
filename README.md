@@ -20,7 +20,7 @@ For more background, check out the [original article](https://beautifulthorns.wi
 
 This script connects to my server running the [nice-backend](https://github.com/wasabipesto/nice-backend) at `https://nice.wasabipesto.com`. 
 
-When you GET the `/claim` endpoint, the backend returns details of a range to search from the database. Each range is a set of numbers, represented in base 10, alongisde a base to use for representations. The entire possible set of numbers valid in the selected base is divided up into fields of a maximum of 300000000 numbers. This range takes my computer about one hour to process, so once you request a range the claim is valid for two hours (after which the backend may give this claim to someone else).
+When you GET the `/claim` endpoint, the backend returns details of a range to search from the database. Each range is a set of numbers, represented in base 10, alongisde a base to use for representations. The entire possible set of numbers valid in the selected base is divided up into fields of a maximum of 1e9 numbers. This range takes my computer anywhere from 2-7 hours to process, so once you request a range the claim is valid for twelve hours (after which the backend may give this claim to someone else).
 
 When you request a claim, you can optionally include a username in the format `/claim?username=asfaloth`. An example claim response looks like this:
 
