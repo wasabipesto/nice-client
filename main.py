@@ -7,9 +7,6 @@ nice_version = os.getenv('NICE_VERSION', 'unknown')
 
 def numberToBase(n, b): # represent a number n in base b
     # returns a list of digits from MSD to LSD
-    # c/o stackoverflow, because numpy base_repr only goes up to base 36
-    if n == 0:
-        return [0]
     digits = []
     while n:
         digits.append(int(n % b))
