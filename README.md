@@ -2,6 +2,8 @@
 
 > a client for distributed search of square-cube pandigitals 
 
+NOTE: This version will work for the foreseeable future but development time is focused on the [rust version](https://github.com/wasabipesto/nice-rust). The rust binary is about 5x faster and has room for additional optimizations. I'm leaving this version up because it's easily hackable for trying new things.
+
 ## Quickstart
 
 ```
